@@ -1,0 +1,4 @@
+table:
+  name: goal_status_enum
+  schema: public
+is_enum: true

@@ -1,0 +1,1 @@
+INSERT INTO "public"."heroes"("id", "name", "phone", "email", "created_at", "updated_at", "deleted_at", "birthday") VALUES (E'f192b78e-399e-4fc5-9676-ce0bf65b220b', E'Andrew Grini', E'+37368953913', E'andy.grini@gmail.com', E'2022-09-22T16:33:54.016771+00:00', E'2022-09-22T16:33:54.016771+00:00', null, E'2022-09-22T16:33:54.016771+00:00');

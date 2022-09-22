@@ -1,0 +1,4 @@
+table:
+  name: privacy_enum
+  schema: public
+is_enum: true

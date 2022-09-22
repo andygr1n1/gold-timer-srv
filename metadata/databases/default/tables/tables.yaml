@@ -1,0 +1,4 @@
+- "!include public_goal_difficulty_enum.yaml"
+- "!include public_goal_status_enum.yaml"
+- "!include public_heroes.yaml"
+- "!include public_privacy_enum.yaml"
