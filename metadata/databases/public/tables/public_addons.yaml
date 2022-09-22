@@ -1,0 +1,10 @@
+table:
+  schema: public
+  name: addons
+object_relationships:
+  - name: addons_enum
+    using:
+      foreign_key_constraint_on: addon
+  - name: hero
+    using:
+      foreign_key_constraint_on: owner_id

@@ -2,8 +2,10 @@
   kind: postgres
   configuration:
     connection_info:
-      use_prepared_statements: false
       database_url:
         from_env: DATABASE_URL
       isolation_level: read-committed
+      use_prepared_statements: false
+  customization:
+    naming_convention: hasura-default
   tables: "!include public/tables/tables.yaml"

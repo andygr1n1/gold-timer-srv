@@ -1,0 +1,11 @@
+table:
+  schema: public
+  name: addons_enum
+array_relationships:
+  - name: addons
+    using:
+      foreign_key_constraint_on:
+        column: addon
+        table:
+          schema: public
+          name: addons

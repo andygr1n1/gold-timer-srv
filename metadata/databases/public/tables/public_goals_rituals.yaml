@@ -1,0 +1,10 @@
+table:
+  schema: public
+  name: goals_rituals
+object_relationships:
+  - name: goal
+    using:
+      foreign_key_constraint_on: goal_id
+  - name: ritual_type_enum
+    using:
+      foreign_key_constraint_on: ritual_type

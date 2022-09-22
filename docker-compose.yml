@@ -1,20 +1,30 @@
 version: '3.6'
+networks:
+    gold-timer-network:
+        name: gold-timer-network
 services:
     postgres:
-        container_name: gold-timer-srv-db
-        image: postgres:12
+        container_name: kzen-postgres
+        image: postgres:14.7
         restart: unless-stopped
         volumes:
             - db_data:/var/lib/postgresql/data
         environment:
             POSTGRES_PASSWORD: grini
+            POSTGRES_USER: postgres
+        ports:
+            - '6081:5432'   
+        networks:
+            - gold-timer-network
     graphql-engine:
-        container_name: gold-timer-srv-engine
-        image: hasura/graphql-engine:v2.12.0
+        container_name: kzen-hasura
+        image: hasura/graphql-engine:v2.2.1
         ports:
             - '6080:8080'
         depends_on:
             - 'postgres'
+        networks:
+            - gold-timer-network
         restart: unless-stopped
         environment:
             ## postgres database to store Hasura metadata
@@ -31,5 +41,9 @@ services:
             ## uncomment next line to set an admin secret
             # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
             HASURA_GRAPHQL_ADMIN_SECRET: grini
+
+            DATABASE_URL: postgres://cmfedroyqtfnkp:grini@postgres:5432/public
+            AUTO_RITUALIZE_GOALS_URL: http://172.17.0.1:8008/kzen/auto-ritualize-goals
+            DESTROY_DATA_URL: http://172.17.0.1:8008/kzen/destroy-data
 volumes:
     db_data:
