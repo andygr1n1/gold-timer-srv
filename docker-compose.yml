@@ -1,4 +1,7 @@
 version: '3.6'
+networks:
+    gold-timer-network:
+        name: gold-timer-network
 services:
     postgres:
         container_name: gold-timer-srv-db
@@ -8,6 +11,8 @@ services:
             - db_data:/var/lib/postgresql/data
         environment:
             POSTGRES_PASSWORD: grini
+        networks:
+            - gold-timer-network
     graphql-engine:
         container_name: gold-timer-srv-engine
         image: hasura/graphql-engine:v2.12.0
@@ -15,6 +20,8 @@ services:
             - '6080:8080'
         depends_on:
             - 'postgres'
+        networks:
+            - gold-timer-network
         restart: unless-stopped
         environment:
             ## postgres database to store Hasura metadata
