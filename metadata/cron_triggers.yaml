@@ -1,1 +1,12 @@
-[]
+- name: autoRitualizeGoals
+  webhook: '{{AUTO_RITUALIZE_GOALS_URL}}'
+  schedule: 0 */6 * * *
+  include_in_metadata: true
+  payload:
+    user_id: blackhat
+- name: destroyData
+  webhook: '{{DESTROY_DATA_URL}}'
+  schedule: 0 0 * * *
+  include_in_metadata: true
+  payload:
+    user_id: blackhat

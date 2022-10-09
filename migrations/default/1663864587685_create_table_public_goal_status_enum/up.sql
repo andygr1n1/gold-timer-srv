@@ -1,1 +1,0 @@
-CREATE TABLE "public"."goal_status_enum" ("status" Text NOT NULL, "description" Text NOT NULL, PRIMARY KEY ("status") , UNIQUE ("status"));COMMENT ON TABLE "public"."goal_status_enum" IS E'goal status';

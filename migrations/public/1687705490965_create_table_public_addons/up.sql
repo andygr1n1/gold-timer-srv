@@ -1,0 +1,1 @@
+CREATE TABLE "public"."addons" ("owner_id" uuid NOT NULL, "addon" text NOT NULL, PRIMARY KEY ("owner_id","addon") , FOREIGN KEY ("addon") REFERENCES "public"."addons_enum"("addon") ON UPDATE restrict ON DELETE restrict, FOREIGN KEY ("owner_id") REFERENCES "public"."heroes"("id") ON UPDATE cascade ON DELETE cascade);COMMENT ON TABLE "public"."addons" IS E'bonus modules';
