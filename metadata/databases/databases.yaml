@@ -2,9 +2,11 @@
   kind: postgres
   configuration:
     connection_info:
-      database_url: postgres://postgres:grini@postgres:5432/postgres
+      database_url:
+        from_env: DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
+    extensions_schema: default
   customization:
     naming_convention: hasura-default
   tables: "!include default/tables/tables.yaml"

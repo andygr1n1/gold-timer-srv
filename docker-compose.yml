@@ -11,6 +11,9 @@ services:
             - db_data:/var/lib/postgresql/data
         environment:
             POSTGRES_PASSWORD: grini
+            POSTGRES_USER: root
+        ports:
+            - '6081:5432'   
         networks:
             - gold-timer-network
     graphql-engine:
