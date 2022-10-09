@@ -28,7 +28,6 @@ local db from PC
 psql postgresql://postgres:grini@127.0.0.2:6081/postgres
 
 pg_dump
-curl --location --request POST 'http://localhost:6080/v1alpha1/pg_dump' --header 'x-hasura-admin-secret: grini' --header 'Content-Type: application/json' --data-raw '{  "opts": ["-O", "-x", "--schema", "public"],  "clean_output": true}' -o backup.sql
+curl --location --request POST 'http://localhost:6080/v1alpha1/pg_dump' --header 'x-hasura-admin-secret: grini' --header 'Content-Type: application/json' --data-raw '{ "opts": ["-O", "-x", "--schema", "public"], "clean_output": true}' -o backup.sql
 
-PGUSER=rwfzwrlawhcrog PGPASSWORD=d32e9a742d8d24c9f8a08f4a3e8d6eae0f4c2959bb456010e88d184df401d1a3  heroku pg:push postgresql://postgres:grini@127.0.0.2:6081/postgres DATABASE_URL
-
+PGUSER=rwfzwrlawhcrog PGPASSWORD=d32e9a742d8d24c9f8a08f4a3e8d6eae0f4c2959bb456010e88d184df401d1a3 heroku pg:push postgresql://postgres:grini@127.0.0.2:6081/postgres DATABASE_URL
