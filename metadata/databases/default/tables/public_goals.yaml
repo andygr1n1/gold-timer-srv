@@ -1,16 +1,13 @@
 table:
   name: goals
   schema: public
-object_relationships:
-  - name: goal_difficulty_enum
+array_relationships:
+  - name: child_goals
     using:
-      foreign_key_constraint_on: difficulty
-  - name: goal_status_enum
-    using:
-      foreign_key_constraint_on: status
-  - name: hero
-    using:
-      foreign_key_constraint_on: owner_id
-  - name: privacy_enum
-    using:
-      foreign_key_constraint_on: privacy
+      manual_configuration:
+        column_mapping:
+          id: parent_goal_id
+        insertion_order: null
+        remote_table:
+          name: goals
+          schema: public

@@ -1,0 +1,1 @@
+CREATE TABLE "public"."goals_logs" ("goal_id" uuid, "log_id" uuid, "log_description" text, "created_at" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY ("goal_id","log_id") , FOREIGN KEY ("goal_id") REFERENCES "public"."goals"("id") ON UPDATE cascade ON DELETE cascade);
