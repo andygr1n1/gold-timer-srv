@@ -38,6 +38,6 @@ heroku pg:psql
 pg_dump
 curl --location --request POST 'http://localhost:6080/v1alpha1/pg_dump' --header 'x-hasura-admin-secret: grini' --header 'Content-Type: application/json' --data-raw '{ "opts": ["-O", "-x", "--schema", "public"], "clean_output": true}' -o backup.sql
 
-PGUSER=rwfzwrlawhcrog PGPASSWORD=d32e9a742d8d24c9f8a08f4a3e8d6eae0f4c2959bb456010e88d184df401d1a3 heroku pg:push postgresql://postgres:grini@127.0.0.2:6081/postgres DATABASE_URL
+PGUSER=rnrjgzuolzgbqe PGPASSWORD=0d2f84f328ea04e40ba39ce3f85b17559e84cf9d974f2bbf980496f4ac3d62c8 heroku pg:push postgresql://postgres:grini@127.0.0.2:6081/postgres DATABASE_URL
 
 heroku pg:psql DATABASE_URL -f ./backup.sql
