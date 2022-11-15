@@ -1,0 +1,4 @@
+table:
+  name: day_enum
+  schema: public
+is_enum: true
