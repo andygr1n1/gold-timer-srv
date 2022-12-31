@@ -1,3 +1,4 @@
+- "!include public_achievements.yaml"
 - "!include public_day_enum.yaml"
 - "!include public_days_rituals.yaml"
 - "!include public_goal_difficulty_enum.yaml"
