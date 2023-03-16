@@ -1,0 +1,11 @@
+table:
+  name: privacy_enum
+  schema: public
+array_relationships:
+  - name: goals
+    using:
+      foreign_key_constraint_on:
+        column: privacy
+        table:
+          name: goals
+          schema: public

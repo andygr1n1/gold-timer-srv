@@ -1,0 +1,11 @@
+table:
+  name: ritual_type_enum
+  schema: public
+array_relationships:
+  - name: goals_rituals
+    using:
+      foreign_key_constraint_on:
+        column: ritual_type
+        table:
+          name: goals_rituals
+          schema: public

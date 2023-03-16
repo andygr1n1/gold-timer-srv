@@ -1,0 +1,11 @@
+table:
+  name: day_enum
+  schema: public
+array_relationships:
+  - name: days_rituals
+    using:
+      foreign_key_constraint_on:
+        column: day
+        table:
+          name: days_rituals
+          schema: public

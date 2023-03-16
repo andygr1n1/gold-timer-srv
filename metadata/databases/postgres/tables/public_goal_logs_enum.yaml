@@ -1,0 +1,11 @@
+table:
+  name: goal_logs_enum
+  schema: public
+array_relationships:
+  - name: goals_logs
+    using:
+      foreign_key_constraint_on:
+        column: log_description
+        table:
+          name: goals_logs
+          schema: public

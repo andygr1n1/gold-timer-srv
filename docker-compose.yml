@@ -5,20 +5,20 @@ networks:
 services:
     postgres:
         container_name: gold-timer-srv-db
-        image: postgres:12
+        image: postgres:14.6
         restart: unless-stopped
         volumes:
             - db_data:/var/lib/postgresql/data
         environment:
             POSTGRES_PASSWORD: grini
-            POSTGRES_USER: root
+            POSTGRES_USER: postgres
         ports:
             - '6081:5432'   
         networks:
             - gold-timer-network
     graphql-engine:
         container_name: gold-timer-srv-engine
-        image: hasura/graphql-engine:v2.2.1
+        image: hasura/graphql-engine:v2.15.1
         ports:
             - '6080:8080'
         depends_on:

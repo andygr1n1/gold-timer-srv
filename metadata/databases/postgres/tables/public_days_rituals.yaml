@@ -1,0 +1,7 @@
+table:
+  name: days_rituals
+  schema: public
+object_relationships:
+  - name: day_enum
+    using:
+      foreign_key_constraint_on: day

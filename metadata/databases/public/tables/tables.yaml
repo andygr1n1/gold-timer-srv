@@ -11,3 +11,4 @@
 - "!include public_poker_user.yaml"
 - "!include public_privacy_enum.yaml"
 - "!include public_ritual_type_enum.yaml"
+- "!include public_tasks.yaml"

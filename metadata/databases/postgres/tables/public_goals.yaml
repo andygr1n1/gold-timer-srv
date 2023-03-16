@@ -1,0 +1,31 @@
+table:
+  name: goals
+  schema: public
+object_relationships:
+  - name: goal_difficulty_enum
+    using:
+      foreign_key_constraint_on: difficulty
+  - name: goal_status_enum
+    using:
+      foreign_key_constraint_on: status
+  - name: hero
+    using:
+      foreign_key_constraint_on: owner_id
+  - name: privacy_enum
+    using:
+      foreign_key_constraint_on: privacy
+array_relationships:
+  - name: goals_logs
+    using:
+      foreign_key_constraint_on:
+        column: goal_id
+        table:
+          name: goals_logs
+          schema: public
+  - name: goals_rituals
+    using:
+      foreign_key_constraint_on:
+        column: goal_id
+        table:
+          name: goals_rituals
+          schema: public
