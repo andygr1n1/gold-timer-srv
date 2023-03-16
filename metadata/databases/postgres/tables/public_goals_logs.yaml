@@ -1,6 +1,6 @@
 table:
-  name: goals_logs
   schema: public
+  name: goals_logs
 object_relationships:
   - name: goal
     using:

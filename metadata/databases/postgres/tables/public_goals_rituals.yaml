@@ -1,6 +1,11 @@
 table:
-  name: goals_rituals
   schema: public
+  name: goals_rituals
+configuration:
+  custom_root_fields: {}
+  custom_column_names:
+    ritual_interval: ritual_interval
+    ritual_type: ritual_type
 object_relationships:
   - name: goal
     using:

@@ -1,10 +1,19 @@
 table:
-  name: goals
   schema: public
+  name: goals
 object_relationships:
   - name: goal_difficulty_enum
     using:
       foreign_key_constraint_on: difficulty
+  - name: goal_ritual
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: goals_rituals
+        insertion_order: null
+        column_mapping:
+          id: goal_id
   - name: goal_status_enum
     using:
       foreign_key_constraint_on: status
@@ -15,17 +24,26 @@ object_relationships:
     using:
       foreign_key_constraint_on: privacy
 array_relationships:
+  - name: child_goals
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: goals
+        insertion_order: null
+        column_mapping:
+          id: parent_goal_id
   - name: goals_logs
     using:
       foreign_key_constraint_on:
         column: goal_id
         table:
-          name: goals_logs
           schema: public
+          name: goals_logs
   - name: goals_rituals
     using:
       foreign_key_constraint_on:
         column: goal_id
         table:
-          name: goals_rituals
           schema: public
+          name: goals_rituals

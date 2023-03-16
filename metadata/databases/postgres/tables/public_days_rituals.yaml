@@ -1,6 +1,6 @@
 table:
-  name: days_rituals
   schema: public
+  name: days_rituals
 object_relationships:
   - name: day_enum
     using:

@@ -1,11 +1,12 @@
 table:
-  name: goal_difficulty_enum
   schema: public
+  name: goal_difficulty_enum
+is_enum: true
 array_relationships:
   - name: goals
     using:
       foreign_key_constraint_on:
         column: difficulty
         table:
-          name: goals
           schema: public
+          name: goals

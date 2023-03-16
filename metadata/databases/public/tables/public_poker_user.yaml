@@ -1,3 +1,3 @@
 table:
-  name: poker_user
   schema: public
+  name: poker_user
