@@ -1,10 +1,11 @@
-- name: postgres
+- name: public
   kind: postgres
   configuration:
     connection_info:
-      database_url: postgres://cmfedroyqtfnkp:grini@postgres:5432/postgres
+      database_url:
+        from_env: DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
   customization:
     naming_convention: hasura-default
-  tables: "!include postgres/tables/tables.yaml"
+  tables: "!include public/tables/tables.yaml"

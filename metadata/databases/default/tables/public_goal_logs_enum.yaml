@@ -1,4 +1,0 @@
-table:
-  name: goal_logs_enum
-  schema: public
-is_enum: true

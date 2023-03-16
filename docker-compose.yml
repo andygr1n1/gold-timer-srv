@@ -4,7 +4,7 @@ networks:
         name: gold-timer-network
 services:
     postgres:
-        container_name: gold-timer-srv-db
+        container_name: kzen-postgres
         image: postgres:14.7
         restart: unless-stopped
         volumes:
@@ -17,7 +17,7 @@ services:
         networks:
             - gold-timer-network
     graphql-engine:
-        container_name: gold-timer-srv-engine
+        container_name: kzen-hasura
         image: hasura/graphql-engine:v2.2.1
         ports:
             - '6080:8080'
@@ -41,5 +41,7 @@ services:
             ## uncomment next line to set an admin secret
             # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
             HASURA_GRAPHQL_ADMIN_SECRET: grini
+
+            DATABASE_URL: postgres://cmfedroyqtfnkp:grini@postgres:5432/public
 volumes:
     db_data:
