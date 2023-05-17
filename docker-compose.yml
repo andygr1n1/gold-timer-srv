@@ -43,5 +43,6 @@ services:
             HASURA_GRAPHQL_ADMIN_SECRET: grini
 
             DATABASE_URL: postgres://cmfedroyqtfnkp:grini@postgres:5432/public
+            AUTO_RITUALIZE_GOALS_URL: http://172.17.0.1:8008/kzen/auto-ritualize-goals
 volumes:
     db_data:

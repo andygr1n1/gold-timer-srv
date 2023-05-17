@@ -1,1 +1,6 @@
-[]
+- name: autoRitualizeGoals
+  webhook: '{{AUTO_RITUALIZE_GOALS_URL}}'
+  schedule: 0 */6 * * *
+  include_in_metadata: true
+  payload:
+    user_id: blackhat
