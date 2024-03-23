@@ -1,3 +1,13 @@
 table:
   schema: public
   name: notepad
+object_relationships:
+  - name: owner_notepad
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: heroes
+        insertion_order: null
+        column_mapping:
+          owner_id: id
