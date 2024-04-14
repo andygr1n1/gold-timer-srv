@@ -15,9 +15,14 @@
     ALTER ROLE cmfedroyqtfnkp PASSWORD 'grini';
     ALTER ROLE cmfedroyqtfnkp WITH SUPERUSER CREATEDB CREATEROLE REPLICATION BYPASSRLS;
     CREATE DATABASE "public";
+    \q
     ```
 
 - copy dev.db inside docker root
+
+    ```
+    docker cp ./dev.sql eb03dd2d5b4e:/
+    ```
 
 - run 
     ```
