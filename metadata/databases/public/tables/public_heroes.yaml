@@ -2,6 +2,9 @@ table:
   schema: public
   name: heroes
 object_relationships:
+  - name: heroes_role
+    using:
+      foreign_key_constraint_on: role
   - name: notepad
     using:
       foreign_key_constraint_on:
@@ -52,3 +55,24 @@ array_relationships:
         table:
           schema: public
           name: sprints
+  - name: tokens
+    using:
+      foreign_key_constraint_on:
+        column: hero_id
+        table:
+          schema: public
+          name: heroes_tokens
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - avatar
+        - birthday
+        - coins
+        - email
+        - id
+        - name
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

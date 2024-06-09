@@ -1,0 +1,7 @@
+table:
+  schema: public
+  name: heroes_tokens
+object_relationships:
+  - name: hero
+    using:
+      foreign_key_constraint_on: hero_id

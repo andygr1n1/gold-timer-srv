@@ -1,0 +1,1 @@
+CREATE TABLE "public"."heroes_tokens" ("id" uuid NOT NULL, "token" text, PRIMARY KEY ("id") , FOREIGN KEY ("id") REFERENCES "public"."heroes"("id") ON UPDATE cascade ON DELETE cascade, UNIQUE ("id"));COMMENT ON TABLE "public"."heroes_tokens" IS E'refresh tokens';
