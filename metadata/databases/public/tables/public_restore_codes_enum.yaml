@@ -1,0 +1,4 @@
+table:
+  schema: public
+  name: restore_codes_enum
+is_enum: true
