@@ -23,3 +23,68 @@ object_relationships:
   - name: privacy_enum
     using:
       foreign_key_constraint_on: privacy
+insert_permissions:
+  - role: hero
+    permission:
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id
+      columns:
+        - created_at
+        - deleted_at
+        - description
+        - difficulty
+        - finished_at
+        - id
+        - is_favorite
+        - owner_id
+        - parent_goal_id
+        - slogan
+        - status
+        - title
+      backend_only: false
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - created_at
+        - deleted_at
+        - description
+        - difficulty
+        - finished_at
+        - id
+        - is_favorite
+        - owner_id
+        - parent_goal_id
+        - slogan
+        - status
+        - title
+        - updated_at
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      allow_aggregations: true
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - created_at
+        - deleted_at
+        - description
+        - difficulty
+        - finished_at
+        - is_favorite
+        - parent_goal_id
+        - privacy
+        - slogan
+        - status
+        - title
+        - updated_at
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id

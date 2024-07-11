@@ -73,6 +73,22 @@ select_permissions:
         - id
         - name
         - phone
+        - role
       filter:
+        id:
+          _eq: X-Hasura-User-Id
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - avatar
+        - birthday
+        - coins
+        - name
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check:
         id:
           _eq: X-Hasura-User-Id

@@ -8,3 +8,38 @@ object_relationships:
   - name: ritual_type_enum
     using:
       foreign_key_constraint_on: ritual_type
+insert_permissions:
+  - role: hero
+    permission:
+      check: {}
+      columns:
+        - created_at
+        - goal_id
+        - ritual_id
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+      backend_only: false
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - created_at
+        - goal_id
+        - ritual_id
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+      filter: {}
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - created_at
+        - goal_id
+        - ritual_id
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+      filter: {}
+      check: {}
