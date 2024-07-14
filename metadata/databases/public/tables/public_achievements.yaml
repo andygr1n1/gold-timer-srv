@@ -5,3 +5,48 @@ object_relationships:
   - name: hero
     using:
       foreign_key_constraint_on: owner_id
+insert_permissions:
+  - role: hero
+    permission:
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id
+      columns:
+        - created_at
+        - description
+        - id
+        - img_path
+        - is_favorite
+        - title
+      backend_only: false
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - created_at
+        - deleted_at
+        - description
+        - id
+        - img_path
+        - is_favorite
+        - title
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - deleted_at
+        - description
+        - img_path
+        - is_favorite
+        - title
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
