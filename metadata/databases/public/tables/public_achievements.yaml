@@ -21,6 +21,24 @@ insert_permissions:
         - is_favorite
         - title
       backend_only: false
+  - role: super_hero
+    permission:
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id
+      columns:
+        - is_favorite
+        - description
+        - img_path
+        - title
+        - created_at
+        - deleted_at
+        - updated_at
+        - id
+        - owner_id
+      backend_only: false
 select_permissions:
   - role: hero
     permission:
@@ -36,6 +54,22 @@ select_permissions:
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - is_favorite
+        - description
+        - img_path
+        - title
+        - created_at
+        - deleted_at
+        - updated_at
+        - id
+        - owner_id
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      allow_aggregations: true
 update_permissions:
   - role: hero
     permission:
@@ -51,3 +85,23 @@ update_permissions:
       check:
         owner_id:
           _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - is_favorite
+        - description
+        - img_path
+        - title
+        - created_at
+        - deleted_at
+        - updated_at
+        - id
+        - owner_id
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id

@@ -17,6 +17,19 @@ insert_permissions:
         - locked
         - owner_id
       backend_only: false
+  - role: super_hero
+    permission:
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id
+      columns:
+        - active
+        - description
+        - id
+        - locked
+      backend_only: false
 select_permissions:
   - role: hero
     permission:
@@ -25,6 +38,17 @@ select_permissions:
         - description
         - id
         - locked
+        - owner_id
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - active
+        - locked
+        - description
+        - id
         - owner_id
       filter:
         owner_id:
@@ -42,3 +66,17 @@ update_permissions:
       check:
         owner_id:
           _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - active
+        - description
+        - locked
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      check:
+        owner_id:
+          _eq: X-Hasura-User-Id
+      set:
+        owner_id: x-hasura-User-Id

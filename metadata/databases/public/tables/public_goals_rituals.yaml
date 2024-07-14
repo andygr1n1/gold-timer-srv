@@ -20,6 +20,17 @@ insert_permissions:
         - ritual_power
         - ritual_type
       backend_only: false
+  - role: super_hero
+    permission:
+      check: {}
+      columns:
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+        - created_at
+        - goal_id
+        - ritual_id
+      backend_only: false
 select_permissions:
   - role: hero
     permission:
@@ -31,6 +42,17 @@ select_permissions:
         - ritual_power
         - ritual_type
       filter: {}
+  - role: super_hero
+    permission:
+      columns:
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+        - created_at
+        - goal_id
+        - ritual_id
+      filter: {}
+      allow_aggregations: true
 update_permissions:
   - role: hero
     permission:
@@ -41,5 +63,16 @@ update_permissions:
         - ritual_interval
         - ritual_power
         - ritual_type
+      filter: {}
+      check: {}
+  - role: super_hero
+    permission:
+      columns:
+        - ritual_interval
+        - ritual_power
+        - ritual_type
+        - created_at
+        - goal_id
+        - ritual_id
       filter: {}
       check: {}

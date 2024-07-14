@@ -77,6 +77,24 @@ select_permissions:
       filter:
         id:
           _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - coins
+        - avatar
+        - email
+        - name
+        - password
+        - phone
+        - role
+        - birthday
+        - created_at
+        - deleted_at
+        - updated_at
+        - id
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
 update_permissions:
   - role: hero
     permission:
@@ -92,3 +110,19 @@ update_permissions:
       check:
         id:
           _eq: X-Hasura-User-Id
+  - role: super_hero
+    permission:
+      columns:
+        - avatar
+        - birthday
+        - coins
+        - name
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check:
+        id:
+          _eq: X-Hasura-User-Id
+      set:
+        id: x-hasura-User-Id
