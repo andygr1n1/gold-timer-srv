@@ -44,6 +44,6 @@ services:
             HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "EiunNL3hbmBb6k6oYrRjeYSZ8ko_Vy9Elzpt-vc78se_DpYUK8bw1JNn4hA8Z1sx","claims_map": { "x-hasura-allowed-roles":{"path":"$$.allowed-roles"}, "x-hasura-default-role":{"path":"$$.role"}, "x-hasura-user-id":{"path":"$$.id"} } }'
             DATABASE_URL: postgres://cmfedroyqtfnkp:grini@postgres:5432/public
             AUTO_RITUALIZE_GOALS_URL: http://172.17.0.1:8008/kzen/auto-ritualize-goals
-            DESTROY_DATA_URL: http://172.17.0.1:8008/kzen/destroy-data
+            DESTROY_KZEN_OUTDATED_ARTIFACTS_URL: http://172.17.0.1:8008/kzen/destroy-data
 volumes:
     db_data:

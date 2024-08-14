@@ -1,1 +1,10 @@
-[]
+- name: DESTROY_KZEN_OUTDATED_ARTIFACTS
+  webhook: '{{DESTROY_KZEN_OUTDATED_ARTIFACTS_URL}}'
+  schedule: 0 0 * * *
+  include_in_metadata: true
+  payload:
+    action: destroy_outdated_artifacts
+    metadata:
+      triggered_by: cron
+      description: Cron job to destroy outdated artifacts
+    timestamp: '{{timestamp}}'
