@@ -54,6 +54,7 @@ select_permissions:
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
+      allow_aggregations: true
   - role: super_hero
     permission:
       columns:
