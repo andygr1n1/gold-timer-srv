@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: addons
+  schema: public
 object_relationships:
   - name: addons_enum
     using:

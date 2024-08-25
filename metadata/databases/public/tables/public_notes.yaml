@@ -1,10 +1,19 @@
 table:
-  schema: public
   name: notes
+  schema: public
 object_relationships:
   - name: hero
     using:
       foreign_key_constraint_on: owner_id
+  - name: label
+    using:
+      manual_configuration:
+        column_mapping:
+          label_id: id
+        insertion_order: null
+        remote_table:
+          name: notes_labels
+          schema: public
 insert_permissions:
   - role: hero
     permission:
@@ -20,9 +29,9 @@ insert_permissions:
         - description
         - id
         - is_favorite
+        - label_id
         - tag
         - updated_at
-      backend_only: false
   - role: super_hero
     permission:
       check:
@@ -37,8 +46,8 @@ insert_permissions:
         - description
         - id
         - is_favorite
+        - label_id
         - tag
-      backend_only: false
 select_permissions:
   - role: hero
     permission:
@@ -49,6 +58,7 @@ select_permissions:
         - description
         - id
         - is_favorite
+        - label_id
         - owner_id
         - tag
         - updated_at
@@ -60,14 +70,15 @@ select_permissions:
     permission:
       columns:
         - archived
-        - is_favorite
-        - description
-        - tag
         - created_at
         - deleted_at
-        - updated_at
+        - description
         - id
+        - is_favorite
+        - label_id
         - owner_id
+        - tag
+        - updated_at
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
@@ -80,6 +91,7 @@ update_permissions:
         - deleted_at
         - description
         - is_favorite
+        - label_id
         - owner_id
         - tag
         - updated_at
@@ -96,6 +108,7 @@ update_permissions:
         - deleted_at
         - description
         - is_favorite
+        - label_id
         - owner_id
         - tag
         - updated_at

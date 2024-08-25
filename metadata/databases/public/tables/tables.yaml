@@ -11,6 +11,7 @@
 - "!include public_heroes_tokens.yaml"
 - "!include public_notepad.yaml"
 - "!include public_notes.yaml"
+- "!include public_notes_labels.yaml"
 - "!include public_privacy_enum.yaml"
 - "!include public_restore_codes.yaml"
 - "!include public_restore_codes_enum.yaml"

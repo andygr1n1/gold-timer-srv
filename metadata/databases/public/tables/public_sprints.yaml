@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: sprints
+  schema: public
 object_relationships:
   - name: hero
     using:

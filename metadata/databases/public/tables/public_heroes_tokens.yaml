@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: heroes_tokens
+  schema: public
 object_relationships:
   - name: hero
     using:

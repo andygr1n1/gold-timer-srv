@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: goals_slides
+  schema: public
 object_relationships:
   - name: hero
     using:
@@ -18,7 +18,6 @@ insert_permissions:
         - id
         - img_path
         - title
-      backend_only: false
   - role: super_hero
     permission:
       check:
@@ -35,7 +34,6 @@ insert_permissions:
         - updated_at
         - id
         - owner_id
-      backend_only: false
 select_permissions:
   - role: hero
     permission:

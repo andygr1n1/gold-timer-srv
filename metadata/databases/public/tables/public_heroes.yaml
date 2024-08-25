@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: heroes
+  schema: public
 object_relationships:
   - name: heroes_role
     using:
@@ -10,58 +10,58 @@ object_relationships:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: notepad
+          schema: public
 array_relationships:
   - name: achievements
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: achievements
+          schema: public
   - name: addons
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: addons
+          schema: public
   - name: goals
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: goals
+          schema: public
   - name: goals_slides
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: goals_slides
+          schema: public
   - name: notes
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: notes
+          schema: public
   - name: sprints
     using:
       foreign_key_constraint_on:
         column: owner_id
         table:
-          schema: public
           name: sprints
+          schema: public
   - name: tokens
     using:
       foreign_key_constraint_on:
         column: hero_id
         table:
-          schema: public
           name: heroes_tokens
+          schema: public
 select_permissions:
   - role: hero
     permission:

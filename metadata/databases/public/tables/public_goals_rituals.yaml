@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: goals_rituals
+  schema: public
 object_relationships:
   - name: goal
     using:
@@ -19,7 +19,6 @@ insert_permissions:
         - ritual_interval
         - ritual_power
         - ritual_type
-      backend_only: false
   - role: super_hero
     permission:
       check: {}
@@ -30,7 +29,6 @@ insert_permissions:
         - created_at
         - goal_id
         - ritual_id
-      backend_only: false
 select_permissions:
   - role: hero
     permission:

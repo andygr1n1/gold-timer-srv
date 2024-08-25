@@ -5,6 +5,6 @@
   payload:
     action: destroy_outdated_artifacts
     metadata:
-      triggered_by: cron
       description: Cron job to destroy outdated artifacts
+      triggered_by: cron
     timestamp: '{{timestamp}}'

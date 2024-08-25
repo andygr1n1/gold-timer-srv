@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: goals
+  schema: public
 object_relationships:
   - name: goal_difficulty_enum
     using:
@@ -8,12 +8,12 @@ object_relationships:
   - name: goal_ritual
     using:
       manual_configuration:
-        remote_table:
-          schema: public
-          name: goals_rituals
-        insertion_order: null
         column_mapping:
           id: goal_id
+        insertion_order: null
+        remote_table:
+          name: goals_rituals
+          schema: public
   - name: goal_status_enum
     using:
       foreign_key_constraint_on: status
@@ -44,7 +44,6 @@ insert_permissions:
         - slogan
         - status
         - title
-      backend_only: false
   - role: super_hero
     permission:
       check:
@@ -67,7 +66,6 @@ insert_permissions:
         - id
         - owner_id
         - parent_goal_id
-      backend_only: false
 select_permissions:
   - role: hero
     permission:

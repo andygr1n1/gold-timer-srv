@@ -1,10 +1,6 @@
 table:
-  name: notepad
+  name: notes_labels
   schema: public
-object_relationships:
-  - name: hero
-    using:
-      foreign_key_constraint_on: owner_id
 insert_permissions:
   - role: hero
     permission:
@@ -14,10 +10,8 @@ insert_permissions:
       set:
         owner_id: x-hasura-User-Id
       columns:
-        - active
-        - description
-        - id
-        - locked
+        - name
+    comment: ""
   - role: super_hero
     permission:
       check:
@@ -26,59 +20,62 @@ insert_permissions:
       set:
         owner_id: x-hasura-User-Id
       columns:
-        - active
-        - description
-        - id
-        - locked
+        - name
+    comment: ""
 select_permissions:
   - role: hero
     permission:
       columns:
-        - active
-        - description
+        - created_at
         - id
-        - locked
+        - name
         - owner_id
+        - rating
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
+    comment: ""
   - role: super_hero
     permission:
       columns:
-        - active
-        - locked
-        - description
+        - created_at
         - id
+        - name
         - owner_id
+        - rating
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
+    comment: ""
 update_permissions:
   - role: hero
     permission:
       columns:
-        - active
-        - description
-        - locked
+        - name
+        - rating
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
       check:
         owner_id:
           _eq: X-Hasura-User-Id
-      set:
-        owner_id: x-hasura-User-Id
+    comment: ""
   - role: super_hero
     permission:
       columns:
-        - active
-        - description
-        - locked
+        - name
+        - rating
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
       check:
         owner_id:
           _eq: X-Hasura-User-Id
-      set:
-        owner_id: x-hasura-User-Id
+    comment: ""
+delete_permissions:
+  - role: hero
+    permission:
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+    comment: ""

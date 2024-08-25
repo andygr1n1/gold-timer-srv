@@ -1,6 +1,6 @@
 table:
-  schema: public
   name: achievements
+  schema: public
 object_relationships:
   - name: hero
     using:
@@ -20,7 +20,6 @@ insert_permissions:
         - img_path
         - is_favorite
         - title
-      backend_only: false
   - role: super_hero
     permission:
       check:
@@ -38,7 +37,6 @@ insert_permissions:
         - updated_at
         - id
         - owner_id
-      backend_only: false
 select_permissions:
   - role: hero
     permission:
