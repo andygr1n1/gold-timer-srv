@@ -1,0 +1,3 @@
+table:
+  name: stories_messages
+  schema: public

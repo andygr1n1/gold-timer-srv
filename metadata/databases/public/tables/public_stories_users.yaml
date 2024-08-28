@@ -1,0 +1,22 @@
+table:
+  name: stories_users
+  schema: public
+object_relationships:
+  - name: Story
+    using:
+      manual_configuration:
+        column_mapping:
+          story_id: id
+        insertion_order: null
+        remote_table:
+          name: stories
+          schema: public
+  - name: User
+    using:
+      manual_configuration:
+        column_mapping:
+          user_id: id
+        insertion_order: null
+        remote_table:
+          name: heroes
+          schema: public

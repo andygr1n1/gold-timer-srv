@@ -17,3 +17,6 @@
 - "!include public_restore_codes_enum.yaml"
 - "!include public_ritual_type_enum.yaml"
 - "!include public_sprints.yaml"
+- "!include public_stories.yaml"
+- "!include public_stories_messages.yaml"
+- "!include public_stories_users.yaml"

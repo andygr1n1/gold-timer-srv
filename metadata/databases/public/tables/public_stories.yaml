@@ -1,0 +1,92 @@
+table:
+  name: stories
+  schema: public
+array_relationships:
+  - name: stories_messages
+    using:
+      foreign_key_constraint_on:
+        column: story_id
+        table:
+          name: stories_messages
+          schema: public
+insert_permissions:
+  - role: hero
+    permission:
+      check: {}
+      set:
+        created_by: x-hasura-User-Id
+        updated_by: x-hasura-User-Id
+      columns:
+        - img_path
+        - title
+    comment: ""
+  - role: super_hero
+    permission:
+      check: {}
+      set:
+        created_by: x-hasura-User-Id
+        updated_by: x-hasura-User-Id
+      columns:
+        - img_path
+        - title
+    comment: ""
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - archived
+        - created_at
+        - created_by
+        - deleted_at
+        - id
+        - img_path
+        - is_favorite
+        - title
+        - updated_at
+        - updated_by
+        - users
+      filter: {}
+    comment: ""
+  - role: super_hero
+    permission:
+      columns:
+        - archived
+        - created_at
+        - created_by
+        - deleted_at
+        - id
+        - img_path
+        - is_favorite
+        - title
+        - updated_at
+        - updated_by
+        - users
+      filter: {}
+    comment: ""
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - archived
+        - deleted_at
+        - img_path
+        - is_favorite
+        - title
+      filter: {}
+      check: {}
+      set:
+        updated_by: x-hasura-User-Id
+    comment: ""
+  - role: super_hero
+    permission:
+      columns:
+        - archived
+        - deleted_at
+        - img_path
+        - is_favorite
+        - title
+      filter: {}
+      check: null
+      set:
+        updated_by: x-hasura-User-Id
+    comment: ""
