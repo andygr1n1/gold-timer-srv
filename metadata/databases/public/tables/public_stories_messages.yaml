@@ -1,3 +1,80 @@
 table:
   name: stories_messages
   schema: public
+insert_permissions:
+  - role: hero
+    permission:
+      check: {}
+      set:
+        created_by: x-hasura-User-Id
+        updated_by: x-hasura-User-Id
+      columns:
+        - description
+        - img_path
+        - story_id
+    comment: ""
+  - role: super_hero
+    permission:
+      check: {}
+      set:
+        created_by: x-hasura-User-Id
+        updated_by: x-hasura-User-Id
+      columns:
+        - description
+        - img_path
+        - story_id
+    comment: ""
+select_permissions:
+  - role: hero
+    permission:
+      columns:
+        - active_by_user
+        - created_at
+        - created_by
+        - deleted_at
+        - description
+        - id
+        - img_path
+        - updated_at
+        - updated_by
+      filter: {}
+    comment: ""
+  - role: super_hero
+    permission:
+      columns:
+        - active_by_user
+        - created_at
+        - created_by
+        - deleted_at
+        - description
+        - id
+        - img_path
+        - updated_at
+        - updated_by
+      filter: {}
+    comment: ""
+update_permissions:
+  - role: hero
+    permission:
+      columns:
+        - active_by_user
+        - deleted_at
+        - description
+        - img_path
+      filter: {}
+      check: null
+      set:
+        updated_by: x-hasura-User-Id
+    comment: ""
+  - role: super_hero
+    permission:
+      columns:
+        - active_by_user
+        - deleted_at
+        - description
+        - img_path
+      filter: {}
+      check: null
+      set:
+        updated_by: x-hasura-User-Id
+    comment: ""
