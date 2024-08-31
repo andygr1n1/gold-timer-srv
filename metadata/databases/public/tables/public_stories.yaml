@@ -1,6 +1,16 @@
 table:
   name: stories
   schema: public
+object_relationships:
+  - name: updated_by_user
+    using:
+      manual_configuration:
+        column_mapping:
+          updated_by: id
+        insertion_order: null
+        remote_table:
+          name: heroes
+          schema: public
 array_relationships:
   - name: stories_messages
     using:
@@ -72,6 +82,7 @@ update_permissions:
         - img_path
         - is_favorite
         - title
+        - updated_at
       filter: {}
       check: {}
       set:
@@ -85,6 +96,7 @@ update_permissions:
         - img_path
         - is_favorite
         - title
+        - updated_at
       filter: {}
       check: null
       set:
