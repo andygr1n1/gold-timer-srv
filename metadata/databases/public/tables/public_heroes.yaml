@@ -74,9 +74,7 @@ select_permissions:
         - name
         - phone
         - role
-      filter:
-        id:
-          _eq: X-Hasura-User-Id
+      filter: {}
   - role: super_hero
     permission:
       columns:
@@ -92,9 +90,7 @@ select_permissions:
         - deleted_at
         - updated_at
         - id
-      filter:
-        id:
-          _eq: X-Hasura-User-Id
+      filter: {}
 update_permissions:
   - role: hero
     permission:

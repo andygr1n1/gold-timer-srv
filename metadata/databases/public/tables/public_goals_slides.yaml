@@ -43,7 +43,6 @@ select_permissions:
         - deleted_at
         - id
         - img_path
-        - owner_id
         - title
       filter:
         owner_id:
@@ -52,13 +51,11 @@ select_permissions:
     permission:
       columns:
         - active
-        - img_path
-        - title
         - created_at
         - deleted_at
-        - updated_at
         - id
-        - owner_id
+        - img_path
+        - title
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
