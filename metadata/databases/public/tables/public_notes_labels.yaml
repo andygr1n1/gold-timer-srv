@@ -79,3 +79,9 @@ delete_permissions:
         owner_id:
           _eq: X-Hasura-User-Id
     comment: ""
+  - role: super_hero
+    permission:
+      filter:
+        owner_id:
+          _eq: X-Hasura-User-Id
+    comment: ""
