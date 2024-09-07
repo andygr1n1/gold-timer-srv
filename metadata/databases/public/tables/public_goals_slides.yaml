@@ -97,3 +97,14 @@ delete_permissions:
   - role: super_hero
     permission:
       filter: {}
+event_triggers:
+  - name: delete_goal_slide
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{HEROKU_NODE_ORIGIN}}/kzen/goal-slide-image-delete'
