@@ -14,6 +14,7 @@ insert_permissions:
       set:
         owner_id: x-hasura-User-Id
       columns:
+        - archived
         - created_at
         - description
         - id
@@ -28,19 +29,21 @@ insert_permissions:
       set:
         owner_id: x-hasura-User-Id
       columns:
-        - is_favorite
-        - description
-        - img_path
-        - title
+        - archived
         - created_at
         - deleted_at
-        - updated_at
+        - description
         - id
+        - img_path
+        - is_favorite
         - owner_id
+        - title
+        - updated_at
 select_permissions:
   - role: hero
     permission:
       columns:
+        - archived
         - created_at
         - deleted_at
         - description
@@ -49,6 +52,7 @@ select_permissions:
         - is_favorite
         - owner_id
         - title
+        - updated_at
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
@@ -56,15 +60,16 @@ select_permissions:
   - role: super_hero
     permission:
       columns:
-        - is_favorite
-        - description
-        - img_path
-        - title
+        - archived
         - created_at
         - deleted_at
-        - updated_at
+        - description
         - id
+        - img_path
+        - is_favorite
         - owner_id
+        - title
+        - updated_at
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
@@ -73,6 +78,7 @@ update_permissions:
   - role: hero
     permission:
       columns:
+        - archived
         - deleted_at
         - description
         - img_path
@@ -87,15 +93,16 @@ update_permissions:
   - role: super_hero
     permission:
       columns:
-        - is_favorite
-        - description
-        - img_path
-        - title
+        - archived
         - created_at
         - deleted_at
-        - updated_at
+        - description
         - id
+        - img_path
+        - is_favorite
         - owner_id
+        - title
+        - updated_at
       filter:
         owner_id:
           _eq: X-Hasura-User-Id
@@ -104,3 +111,17 @@ update_permissions:
           _eq: X-Hasura-User-Id
       set:
         owner_id: x-hasura-User-Id
+event_triggers:
+  - name: delete_achievement
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      update:
+        columns:
+          - img_path
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{HEROKU_NODE_ORIGIN}}/kzen/image-delete'
