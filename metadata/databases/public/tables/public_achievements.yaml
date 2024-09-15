@@ -17,6 +17,7 @@ insert_permissions:
         - archived
         - created_at
         - description
+        - freezed
         - id
         - img_path
         - is_favorite
@@ -33,6 +34,7 @@ insert_permissions:
         - created_at
         - deleted_at
         - description
+        - freezed
         - id
         - img_path
         - is_favorite
@@ -47,6 +49,7 @@ select_permissions:
         - created_at
         - deleted_at
         - description
+        - freezed
         - id
         - img_path
         - is_favorite
@@ -64,6 +67,7 @@ select_permissions:
         - created_at
         - deleted_at
         - description
+        - freezed
         - id
         - img_path
         - is_favorite
@@ -81,6 +85,7 @@ update_permissions:
         - archived
         - deleted_at
         - description
+        - freezed
         - img_path
         - is_favorite
         - title
@@ -97,6 +102,7 @@ update_permissions:
         - created_at
         - deleted_at
         - description
+        - freezed
         - id
         - img_path
         - is_favorite
